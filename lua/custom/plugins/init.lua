@@ -8,7 +8,10 @@ return {
     name = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
-      require('render-markdown').setup {}
+      require('render-markdown').setup {
+
+        file_types = { 'markdown', 'vimwiki', 'Avante' },
+      }
     end,
   },
   -- Coloring hex codes in any file
@@ -39,25 +42,6 @@ return {
       'rcarriga/nvim-notify',
     },
   },
-  -- {
-  --   -- Setting up the nordic theme
-  --   require('nordic').setup {
-  --     -- Enable bold keywords.
-  --     bold_keywords = true,
-  --     -- Enable italic comments.
-  --     italic_comments = true,
-  --     -- Enable general editor background transparency.
-  --     transparent_bg = true,
-  --     noice = {
-  --       -- Available styles: `classic`, `flat`.
-  --       style = 'flat',
-  --     },
-  --     telescope = {
-  --       -- Available styles: `classic`, `flat`.
-  --       style = 'flat',
-  --     },
-  --   },
-  -- },
   {
     'folke/trouble.nvim',
     opts = {}, -- for default options, refer to the configuration section for custom setup.
