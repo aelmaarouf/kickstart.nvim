@@ -7,25 +7,16 @@ return {
     opts = {
       -- provider Ollama
       provider = 'ollama',
-      vendors = {
-        ollama = {
-          __inherited_from = 'openai',
-          api_key_name = '',
-          endpoint = 'https://europe-west1-arkeup-ai-gen-lab.cloudfunctions.net/use-ollama-multi/v1',
-          model = 'codegemma:7b',
-        },
+      ollama = {
+        api_key_name = 'OLLAMA_TOKEN',
+        endpoint = 'https://europe-west1-arkeup-ai-gen-lab.cloudfunctions.net/use-ollama-multi',
+        model = 'gemma3:4b',
       },
-      -- provider Vertex
-      -- provider = 'vertex',
-      -- vertex = {
-      --   endpoint = 'https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models',
-      --   api_key_name = 'cmd:gcloud auth print-access-token --quiet',
-      --   model = 'gemini-1.5-flash-002',
-      --   timeout = 30000, -- Timeout in milliseconds
-      --   temperature = 0,
-      --   max_tokens = 4096,
-      --   -- ['local'] = false,
-      -- },     -- ollama vendor
+      -- custom provider Ollama
+      behaviour = {
+        --- ... existing behaviours
+        enable_cursor_planning_mode = true, -- enable cursor planning mode!
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = 'make',
